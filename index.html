@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Saldos Bancarios</title>
+</head>
+<body>
+
+    <h1>Banco "Mi Futuro"</h1>
+    <h2>Consulta de saldos</h2>
+
+    <label>Ingrese el número de cuenta (1 al 10):</label>
+    <input type="number" id="cuenta" min="1" max="10">
+
+    <button onclick="consultarSaldo()">Consultar saldo</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        // Vector con los saldos de los 10 clientes
+        let saldos = [
+            500,
+            1200,
+            750,
+            300,
+            2500,
+            1000,
+            850,
+            430,
+            1750,
+            900
+        ];
+
+        function consultarSaldo() {
+            // Obtener el número de cuenta ingresado
+            let cuenta = parseInt(document.getElementById("cuenta").value);
+
+            // Verificar si la cuenta existe
+            if (cuenta >= 1 && cuenta <= 10) {
+
+                // Restamos 1 porque los vectores empiezan en posición 0
+                let saldo = saldos[cuenta - 1];
+
+                document.getElementById("resultado").innerHTML =
+                    "El saldo de la cuenta " + cuenta + " es: $" + saldo;
+
+            } else {
+
+                document.getElementById("resultado").innerHTML =
+                    "Error: la cuenta no está registrada.";
+            }
+        }
+    </script>
+
+</body>
+</html>
